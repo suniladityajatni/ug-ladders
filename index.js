@@ -38,6 +38,7 @@ if(process.env.NODE_ENV === 'production')
 {
     // app.use(favicon(path.join(__dirname, "public", "images", "favicons", "favicon.ico")))
     app.use(express.static("frontend/build"))
+    // app.use(favicon(path.join(__dirname, "public", "images", "favicons", "favicon.ico")))
     const path=require("path");
     // const favicon = require("serve-favicon")
     app.get("*",(req,res) => {
