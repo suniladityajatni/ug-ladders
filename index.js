@@ -15,7 +15,7 @@ let allProblems =[];
     allProblems=await getProblems();
 })();
 
-app.get("/", (req, res) => {
+app.get("/server", (req, res) => {
     res.send("Hello")
 })
 
