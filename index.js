@@ -9,6 +9,15 @@ const app = express();
 app.use(express.json())
 app.use(cors());
 
+if(process.env.NODE_ENV === 'production')
+{
+    const path=require("path");
+    app.use(express.static(path.join(__dirname, 'frontend','build')));   
+    app.get("*",(req,res) => {
+        res.sendFile(path.join(__dirname, 'frontend','build', 'index.html'));
+    })
+}
+
 let allProblems =[];
 
 (async function () {
@@ -34,14 +43,3 @@ app.listen(PORT, () => {
 })
 
 
-if(process.env.NODE_ENV === 'production')
-{
-    // app.use(favicon(path.join(__dirname, "public", "images", "favicons", "favicon.ico")))
-    app.use(express.static("frontend/build"))
-    // app.use(favicon(path.join(__dirname, "public", "images", "favicons", "favicon.ico")))
-    const path=require("path");
-    // const favicon = require("serve-favicon")
-    app.get("*",(req,res) => {
-        res.sendFile(path.resolve(__dirname,'frontend','build','index.html'));
-    })
-}

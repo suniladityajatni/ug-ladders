@@ -5,6 +5,7 @@ function Header(props) {
 
     return (
         <div className='fluid-container full-width'>
+            {/* <link rel="icon" href="./favicon.ico" /> */}
             <div className='col-12'>
                 <nav className="navbar navbar-light bg-light">
                     <p className="navbar-brand"><img src={require("./logo.png")} className="rounded float-left" width={300} alt="logo" /></p>
